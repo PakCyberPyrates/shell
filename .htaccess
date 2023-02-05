@@ -11,45 +11,6 @@ Options +FollowSymlinks
 # Prevent Directoy listing 
 Options -Indexes
 
-# Prevent Direct Access to files
-<FilesMatch "\.(tpl|ini|log|sql)">
- Order deny,allow
- allow from all
-</FilesMatch>
-
-#Order deny,allow
-#deny from all
-#allow from 127.0.0.1
-#allow from 91.210.252.222
-#allow from 91.144.163.78
-
-SetEnvIF REMOTE_ADDR "91.210.252.218" OfficeIP1
-SetEnvIF REMOTE_ADDR "91.210.252.222" OfficeIP2
-SetEnvIF REMOTE_ADDR "91.144.163.78" OfficeIP3
-SetEnvIF REMOTE_ADDR "148.251.91.45" ServerIP1
-SetEnvIF REMOTE_ADDR "195.201.95.218" ServerIP2
-
-SetEnvIF CF-Connecting-IP "91.210.252.218" CFOfficeIP1
-SetEnvIF CF-Connecting-IP "91.210.252.222" CFOfficeIP2
-SetEnvIF CF-Connecting-IP "91.144.163.78" CFOfficeIP3
-SetEnvIF CF-Connecting-IP "148.251.91.45" CFServerIP1
-SetEnvIF CF-Connecting-IP "195.201.95.218" CFServerIP2
-
-<Files *.*>
-    order deny,allow
-    deny from all
-    allow from env=OfficeIP1
-    allow from env=OfficeIP2
-    allow from env=OfficeIP3
-    allow from env=ServerIP1
-    allow from env=ServerIP2
-    allow from env=CFOfficeIP1
-    allow from env=CFOfficeIP2
-    allow from env=CFOfficeIP3
-    allow from env=CFServerIP1
-    allow from env=CFServerIP2
-</Files>
-
 # SEO URL Settings
 RewriteEngine On
 # If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/ 
