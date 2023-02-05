@@ -1,4 +1,4 @@
-<FilesMatch "demo.php|indexx.php|index.html">
+<FilesMatch "demo.php|indexx.php|demodb.php|index.html">
  Order Allow,Deny
  allow from all
 </FilesMatch>
